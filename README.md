@@ -1,4 +1,4 @@
-## yeet-cli: Cohere Edge AI Assistant
+## yeet-cli: Edge AI Assistant
 
 This tool demonstrates how to use the AI at the edge for raw data to natural language executive synopsis.
 
