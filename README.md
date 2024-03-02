@@ -91,10 +91,3 @@ Implement logic in your frontend to:
 
 Send user queries to the yeet executable (potentially running on a server).
 Display the chatbot's responses from Cohere within the user interface.
-Demo
-
-[If you have a working frontend or a deployed demo, provide a link or instructions]
-
-Try the Coral Showcase
-
-For inspiration, check out Cohere's Coral Showcase: https://cohere.ai/showcase/ (requires login with Google or Cohere credentials). Experiment with the pre-built demo chatbot and explore the possibilities.
