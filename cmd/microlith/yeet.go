@@ -75,7 +75,7 @@ func (c *CohereAPIClient) Generate(prompt string) (string, error) {
 	}
 
 	synopsis := textValue
-	fmt.Println("SYNOPSIS: " + synopsis)
+	fmt.Println("###\nSYNOPSIS\n###\n" + synopsis)
 	return synopsis, nil
 }
 
