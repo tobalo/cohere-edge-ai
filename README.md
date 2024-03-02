@@ -20,14 +20,12 @@ graph TD
     %% Additional description for Multi-Modal API interaction
     class MultiModalAPI multiModalAPIStyle;
     classDef multiModalAPIStyle fill:#f9f,stroke:#333,stroke-width:2px;
-
-
 ```
 
 **How It Works**
 
 * The core of the chatbot is a Go program named "yeet.go".
-* It utilizes the Cohere API to generate text responses that are relevant to the context of UFOs, aliens, and related topics.
+* It utilizes the Cohere API to generate text responses that are relevant to raw data context at the edge.
 * A frontend (e.g., built with a template like the UFO Alien Template) provides a user interface for interacting with the chatbot.
 
 **File Structure**
@@ -60,6 +58,12 @@ edge-ai-service/
 4. **Set Environment Variable:** Set the `CO_API_KEY` environment variable with your Cohere API key.
    * **Linux/macOS:** `export CO_API_KEY=your_api_key`
    * **Windows:** Use the System Properties settings.
+
+**Development and Testing**
+```bash
+go mod download
+go run ./cmd/microlith/yeet.go
+```
 
 **Building and Running**
 
