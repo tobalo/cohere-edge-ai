@@ -1,30 +1,59 @@
-Cohere Chatbot Demo for a UFO Alien Site
+## yeet-cli: Cohere Edge AI Assistant
 
-Hello there! Here is a simple README file for a site that uses the Cohere API to enable chat functionality.
+This project demonstrates how to integrate the Cohere API to create an interactive chatbot experience for a UFO and alien-themed website.
 
+**How It Works**
 
-Requirements
+* The core of the chatbot is a Go program named "yeet.go".
+* It utilizes the Cohere API to generate text responses that are relevant to the context of UFOs, aliens, and related topics.
+* A frontend (e.g., built with a template like the UFO Alien Template) provides a user interface for interacting with the chatbot.
 
-[Cohere API](https://www.cohere.com/product/chat-api/)
-Vite.js%0A-%20%5BUFO%20Alien%20Template%5D(%3Cco%3A%200%2C2%2C4%2C6%2C8%3Ehttps%3A%2F%2Fwww.templatemonster.com%2Ffree-html5-ufo-website-templates]{generationId="5dbc63fc-24c6-4421-8040-852529f326fb" start="238" end="342"}/) (or a similar template)
+**Requirements**
 
-Installation
+* A Cohere API key ([https://cohere.ai](https://cohere.ai))
+* Go programming language ([https://go.dev/](https://go.dev/))
+* A frontend web framework or HTML template (optional, for the user interface)
 
-Sign up for a Cohere API key.
-Install Vite.js and use the UFO Alien Template (or a similar template).
-Implement the Cohere API on your site.
+**Installation**
 
-Usage
+1. **Obtain a Cohere API key:** Sign up for a Cohere account and get your API key.
+2. **Install Go:** Follow the instructions at [https://go.dev/doc/install](https://go.dev/doc/install)
+3. **Clone or download this project:** This will give you the `yeet.go` file.
+4. **Set Environment Variable:** Set the `CO_API_KEY` environment variable with your Cohere API key.
+   * **Linux/macOS:** `export CO_API_KEY=your_api_key`
+   * **Windows:** Use the System Properties settings.
 
-The Cohere API can be used to build applications such as a knowledge assistant or customer support chatbot in a simpler and more reliable way.
+**Building and Running**
 
+**1. Build the Go binary:**
+```bash
+go build yeet.go
+```
 
+This will create an executable file named yeet (or yeet.exe on Windows)
+
+2. Run the chatbot:
+
+```
+bash
+./yeet
+```
+
+Use code with caution.
+The chatbot will start listening for input from the command line.
+
+Frontend Integration (Optional)
+
+Choose a frontend web framework (e.g., React, Vue.js, Svelte) or use a pre-built template like the UFO Alien Template.
+
+Implement logic in your frontend to:
+
+Send user queries to the yeet executable (potentially running on a server).
+Display the chatbot's responses from Cohere within the user interface.
 Demo
 
-Here is a demo of the functionality you can expect from the Cohere API when integrated into your site.
+[If you have a working frontend or a deployed demo, provide a link or instructions]
 
+Try the Coral Showcase
 
-Try out the Coral Showcase, where you can experiment with Cohere's API using their pre-built demo chatbot, Coral. Please note that you will need to sign in with your Google or Cohere credentials to access the environment.
-
-
-You can also build your own chatbot using Cohere's Command large language model and their Chat API.
+For inspiration, check out Cohere's Coral Showcase: https://cohere.ai/showcase/ (requires login with Google or Cohere credentials). Experiment with the pre-built demo chatbot and explore the possibilities.
