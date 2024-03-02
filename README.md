@@ -19,6 +19,7 @@ graph TD
 * It utilizes the Cohere API to generate text responses that are relevant to the context of UFOs, aliens, and related topics.
 * A frontend (e.g., built with a template like the UFO Alien Template) provides a user interface for interacting with the chatbot.
 
+**File Structure**
 ```
 edge-ai-service/
 ├── models (POTENTIAL)/
