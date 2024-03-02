@@ -2,11 +2,35 @@
 
 This project demonstrates how to integrate the Cohere API to create an interactive chatbot experience for a UFO and alien-themed website.
 
+**(DRAFT) Design**
+```mermaid
+graph TD
+    subgraph Edge AI Service
+    UserInput --> PromptInputModule
+    PromptInputModule --> CohereAPI[Cohere API]
+    CohereAPI --> ResponseProcessingModule
+    ResponseProcessingModule --> OutputModule
+    end
+```
+
 **How It Works**
 
 * The core of the chatbot is a Go program named "yeet.go".
 * It utilizes the Cohere API to generate text responses that are relevant to the context of UFOs, aliens, and related topics.
 * A frontend (e.g., built with a template like the UFO Alien Template) provides a user interface for interacting with the chatbot.
+
+```
+edge-ai-service/
+├── models (POTENTIAL)/
+│   └── cohere.edge.bin (or similar model file)
+├── pkg/synopsis
+│       └── service.go
+├── cmd/microlith/
+│       └── yeet.go
+├── .env
+├── Dockerfile
+└── README.md
+```
 
 **Requirements**
 
