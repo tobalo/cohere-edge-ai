@@ -1,11 +1,12 @@
 package main
 
-// Import the necessary packages
 import (
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"sync"
+	"time"
 )
 
 // CohereAPIClient is a struct that defines the Cohere API client
@@ -35,7 +36,7 @@ func (c *CohereAPIClient) Request(endpoint string, params map[string]string) (*h
 	return resp, nil
 }
 
-// ExampleFunction is a function that uses the Cohere API to interact with a chatbot
+// Optimized ExampleFunction with http.Client reuse, timeout, and batching
 func (c *CohereAPIClient) ExampleFunction() {
 	// Define the parameters for the request
 	params := map[string]string{
@@ -46,26 +47,37 @@ func (c *CohereAPIClient) ExampleFunction() {
 		"temperature": "neutral",
 	}
 
-	// Make the request to the Cohere API
-	response, err := c.Request("generate", params)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer response.Body.Close()
-
-	// Read the response body as a string
-	responseBody, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
+	client := &http.Client{
+		Timeout: 10 * time.Second, // Set a reasonable timeout, adjust as needed
 	}
 
-	// Print the response
-	fmt.Println(string(responseBody))
+	var wg sync.WaitGroup
+	for i := 0; i < 5; i++ { // Example of making multiple requests
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			response, err := client.Get(url) // Reuse http.Client
+			if err != nil {
+				log.Println("Error in request:", err)
+				return
+			}
+			defer response.Body.Close()
+
+			responseBody, err := ioutil.ReadAll(response.Body)
+			if err != nil {
+				log.Println("Error reading response:", err)
+				return
+			}
+
+			fmt.Println(string(responseBody))
+		}()
+	}
+
+	wg.Wait()
 }
 
-// ExampleMain is the main function for the chatbot example
-func Main() {
-	// Create a new CohereAPIClient with a sample API key (you would replace this with your actual API key)
+func main() {
+	// Create a new CohereAPIClient with a sample API key
 	client := NewClient("YOUR_API_KEY_HERE")
 
 	// Call the ExampleFunction to interact with the chatbot
