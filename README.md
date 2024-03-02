@@ -34,8 +34,7 @@ This will create an executable file named yeet (or yeet.exe on Windows)
 
 2. Run the chatbot:
 
-```
-bash
+```bash
 ./yeet -i <INPUT_EDGE_PROMPT>
 ```
 
