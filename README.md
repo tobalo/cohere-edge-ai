@@ -27,7 +27,7 @@ This project demonstrates how to integrate the Cohere API to create an interacti
 
 **1. Build the Go binary:**
 ```bash
-go build yeet.go
+go build ./cmd/microlith/yeet.go
 ```
 
 This will create an executable file named yeet (or yeet.exe on Windows)
