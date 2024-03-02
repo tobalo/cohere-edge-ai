@@ -1,16 +1,27 @@
 ## yeet-cli: Cohere Edge AI Assistant
 
-This project demonstrates how to integrate the Cohere API to create an interactive chatbot experience for a UFO and alien-themed website.
+This tool demonstrates how to use the AI at the edge for raw data to natural language executive synopsis.
 
-**(DRAFT) Design**
+**Design**
 ```mermaid
 graph TD
     subgraph Edge AI Service
-    UserInput --> PromptInputModule
-    PromptInputModule --> CohereAPI[Cohere API]
-    CohereAPI --> ResponseProcessingModule
-    ResponseProcessingModule --> OutputModule
+    EdgeInput[Edge Input] --> PromptInputModule[Process Edge Input]
+    PromptInputModule -->|Raw Data Input| MultiModalAPI
+    MultiModalAPI[Cohere/GPT/LLaMa2/Mistral/Claude API] --> ResponseProcessingModule[Process API Response]
+    ResponseProcessingModule --> OutputModule[Generate Synopsis]
+    OutputModule --> EdgeOutput[Edge Output]
+    
+    %% Back and forth data flow for feedback or iterative refinement
+    MultiModalAPI -->|Request/Response| PromptInputModule
+    ResponseProcessingModule -->|Refined Data| PromptInputModule
     end
+
+    %% Additional description for Multi-Modal API interaction
+    class MultiModalAPI multiModalAPIStyle;
+    classDef multiModalAPIStyle fill:#f9f,stroke:#333,stroke-width:2px;
+
+
 ```
 
 **How It Works**
@@ -24,8 +35,10 @@ graph TD
 edge-ai-service/
 ├── models (POTENTIAL)/
 │   └── cohere.edge.bin (or similar model file)
-├── pkg/synopsis
-│       └── service.go
+├── pkg/
+│   └── synopsis/service.go
+├── pkg/
+│   └── endpoints/service.go
 ├── cmd/microlith/
 │       └── yeet.go
 ├── .env
