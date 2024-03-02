@@ -36,7 +36,7 @@ This will create an executable file named yeet (or yeet.exe on Windows)
 
 ```
 bash
-./yeet
+./yeet -i <INPUT_EDGE_PROMPT>
 ```
 
 Use code with caution.
