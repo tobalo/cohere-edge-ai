@@ -1,4 +1,4 @@
-## yeet-cli: Edge AI Assistant
+## Synopsis: Edge AI Assistant
 
 This tool demonstrates how to use the AI at the edge for raw data to natural language executive synopsis.
 
