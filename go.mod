@@ -1,6 +1,6 @@
 module tobalo/zeticuli-demo
 
-go 1.21.1
+go 1.23
 
 require (
 	github.com/cohere-ai/cohere-go v0.2.0 // indirect
