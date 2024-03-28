@@ -77,7 +77,7 @@ This will create an executable file named synopsis (or synopsis.exe on Windows)
 2. Run the chatbot:
 
 ```bash
-./synopsis -i <INPUT_EDGE_PROMPT>
+./synopsis -i "<co: 0>341 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8"
 ```
 
 Use code with caution.
