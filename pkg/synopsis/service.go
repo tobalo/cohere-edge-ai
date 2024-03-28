@@ -24,8 +24,8 @@ func (c *CohereAPIClient) Generate(prompt string) (string, error) {
 	url := "https://api.cohere.ai/v1/generate"
 	payload := fmt.Sprintf(`{
         "model": "command-nightly", 
-        "prompt": "Provide an executive synopsis of the following: %s",
-        "max_tokens": 50,
+        "prompt": "Provide an executive synopsis and intelligence report of the following raw data: %s",
+        "max_tokens": 500,
         "temperature": 0.9, 
         "stop_sequences": ["--"]
     }`, prompt)
