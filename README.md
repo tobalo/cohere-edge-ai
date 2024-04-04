@@ -32,11 +32,11 @@ graph TD
 ```
 edge-ai-service/
 ├── models (POTENTIAL)/
-│   └── cohere.edge.bin (or similar model file)
+│   └── grok.bin | mistral.bin | llama.bin
 ├── pkg/
 │   └── synopsis/service.go
-├── pkg/
-│   └── endpoints/service.go
+|   └── embeddednats/server.go
+|   └── shared/subjects.go
 ├── cmd/microlith/
 │       └── synopsis.go
 ├── .env
