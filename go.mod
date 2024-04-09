@@ -1,4 +1,4 @@
-module tobalo/zeticuli-demo
+module tobalo/v1/synopsis
 
 go 1.23
 

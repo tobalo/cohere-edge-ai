@@ -6,7 +6,12 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strings"
+
+	shared "tobalo/v1/synopsis/pkg/shared"
+
+	"github.com/nats-io/nats.go"
 )
 
 // CohereAPIClient with Generate method and API key
@@ -81,5 +86,19 @@ func (c *CohereAPIClient) SynopsisFunction(prompt string) string {
 		log.Println("Error getting synopsis:", err)
 		return "Error: Could not fetch synopsis" // Provide some fallback text
 	}
+	Publish(synopsis)
 	return synopsis
+}
+
+func Publish(msg string) {
+	url := os.Getenv("NATS_URL")
+	if url == "" {
+		url = nats.DefaultURL
+	}
+
+	nc, _ := nats.Connect(url)
+
+	defer nc.Drain()
+
+	nc.Publish(shared.SYNOPSIS_SUB, []byte(msg))
 }

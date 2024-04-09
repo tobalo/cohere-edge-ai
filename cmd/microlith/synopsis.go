@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"tobalo/zeticuli-demo/pkg/synopsis"
+	"tobalo/v1/synopsis/pkg/synopsis"
 
 	"github.com/joho/godotenv"
 )
