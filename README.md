@@ -11,15 +11,24 @@ graph TD
     MultiModalAPI[Cohere/GPT/LLaMa2/Mistral/Claude API] --> ResponseProcessingModule[Process API Response]
     ResponseProcessingModule --> OutputModule[Generate Synopsis]
     OutputModule --> EdgeOutput[Edge Output]
+    OutputModule -->|Synopsis Output| PublishToNats[Publish to nats.io]
     
     %% Back and forth data flow for feedback or iterative refinement
     MultiModalAPI -->|Request/Response| PromptInputModule
     ResponseProcessingModule -->|Refined Data| PromptInputModule
     end
 
+   subgraph Mothership
+    PublishToNats --> HybridCloud[NATS Server]
+    HybridCloud --> EmailService[Email Out]
+    HybridCloud --> ArchiveService[Archive]
+    HybridCloud --> IntegrationService[Integrate with Systems]
+    end
     %% Additional description for Multi-Modal API interaction
     class MultiModalAPI multiModalAPIStyle;
     classDef multiModalAPIStyle fill:#f9f,stroke:#333,stroke-width:2px;
+
+  
 ```
 
 **How It Works**
