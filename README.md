@@ -31,11 +31,8 @@ graph TD
 **File Structure**
 ```
 edge-ai-service/
-├── models (POTENTIAL)/
-│   └── grok.bin | mistral.bin | llama.bin
 ├── pkg/
 │   └── synopsis/service.go
-|   └── embeddednats/server.go
 |   └── shared/subjects.go
 ├── cmd/microlith/
 │       └── synopsis.go
@@ -49,6 +46,7 @@ edge-ai-service/
 * A Cohere API key ([https://cohere.ai](https://cohere.ai))
 * Go programming language ([https://go.dev/](https://go.dev/))
 * A frontend web framework or HTML template (optional, for the user interface)
+* Nats.io Edge Messaging Fabric Technology ([https://nats.io](https://nats.io))
 
 **Installation**
 
@@ -60,6 +58,12 @@ edge-ai-service/
    * **Windows:** Use the System Properties settings.
 
 **Development and Testing**
+```bash
+# Initialize default nats server
+nats-server
+# Subscribe to synopsis messages
+nats sub "edge.synopsis"
+```
 ```bash
 go mod download
 go run ./cmd/microlith/synopsis.go
