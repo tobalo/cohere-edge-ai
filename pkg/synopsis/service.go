@@ -86,19 +86,16 @@ func (c *CohereAPIClient) SynopsisFunction(prompt string) string {
 		log.Println("Error getting synopsis:", err)
 		return "Error: Could not fetch synopsis" // Provide some fallback text
 	}
-	Publish(synopsis)
+	publish(synopsis)
 	return synopsis
 }
 
-func Publish(msg string) {
+func publish(msg string) {
 	url := os.Getenv("NATS_URL")
 	if url == "" {
 		url = nats.DefaultURL
 	}
-
 	nc, _ := nats.Connect(url)
-
 	defer nc.Drain()
-
 	nc.Publish(shared.SYNOPSIS_SUB, []byte(msg))
 }

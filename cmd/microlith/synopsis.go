@@ -43,6 +43,8 @@ func main() {
 		fmt.Scanln(&prompt) // Get input from the console
 	}
 	edgePrompt := prompt
-	synopsis := client.SynopsisFunction(edgePrompt)
-	fmt.Println(synopsis)
+	syn := client.SynopsisFunction(edgePrompt)
+	fmt.Println(syn)
+	fmt.Println("__________________________")
+	fmt.Println("COMPLETED EDGE AI SYNOPSIS")
 }
