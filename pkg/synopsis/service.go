@@ -95,7 +95,7 @@ func publish(msg string) {
 	if url == "" {
 		url = nats.DefaultURL
 	}
-	nc, _ := nats.Connect(url, nats.UserCredentials("oci-roving-edge"))
+	nc, _ := nats.Connect(url, nats.UserCredentials("synadia.oci.edge.creds"))
 	defer nc.Drain()
 	nc.Publish(shared.SYNOPSIS_SUB, []byte(msg))
 }
