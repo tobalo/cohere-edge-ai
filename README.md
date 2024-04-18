@@ -31,6 +31,7 @@ edge-ai-service/
 ```
 
 **Architecture**
+
 Refer to Pretty one at `./artifacts/architecture.png`
 ```mermaid
 graph LR
