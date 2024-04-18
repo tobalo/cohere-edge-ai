@@ -1,45 +1,68 @@
-## Synopsis: Edge AI Assistant
+## Sygnopsis: Edge AI Innovation
 
-This tool demonstrates how to use the AI at the edge for raw data to natural language executive synopsis.
+This tool demonstrates how to use AI at the edge for raw data to executive signopsis intelligence reporting for agnostic source systems via a land-air-water-space network data fabric mesh.
 
 **Design**
 ```mermaid
-graph TD
-    subgraph Edge AI Service
-    EdgeInput[Edge Input] --> PromptInputModule[Process Edge Input]
-    PromptInputModule -->|Raw Data Input| MultiModalAPI
-    MultiModalAPI[Cohere/GPT/LLaMa2/Mistral/Claude API] --> ResponseProcessingModule[Process API Response]
-    ResponseProcessingModule --> OutputModule[Generate Synopsis]
-    OutputModule --> EdgeOutput[Edge Output]
-    OutputModule -->|Synopsis Output| PublishToNats[Publish to nats.io]
-    
-    %% Back and forth data flow for feedback or iterative refinement
-    MultiModalAPI -->|Request/Response| PromptInputModule
-    ResponseProcessingModule -->|Refined Data| PromptInputModule
-    end
-
-   subgraph Mothership
-    PublishToNats --> HybridCloud[NATS Server]
-    HybridCloud --> EmailService[Email Out]
-    HybridCloud --> ArchiveService[Archive]
-    HybridCloud --> IntegrationService[Integrate with Systems]
-    end
-    %% Additional description for Multi-Modal API interaction
-    class MultiModalAPI multiModalAPIStyle;
-    classDef multiModalAPIStyle fill:#f9f,stroke:#333,stroke-width:2px;
-
-  
+graph LR
+A[Edge Services Admin] --> B[Corsight]
+B --> C{Python 37}
+C --> D[OCI EDGE]
+C --> E[Redis] 
+C --> F[Software]
+D --> G[OCI Admin]
+D --> H[Application Admin]
+D --> I[Videos Stream / Snapshot Push]
+D --> J[Image or Video Capture]
+I --> K[ULTRA]
+G --> L[OCI Chicago]
+G --> M[OCI Ashburn]
+L --> N[OSN]
+N --> O[Object Storage]
+N --> P[Autonomous Database]
+N --> Q{ULTRAMQ AP}
+Q --> R[AI Vision]
+Q --> U[Logging]
+Q --> S[APEX]
+Q --> T[Auditing]
+M --> V[OSN]
+V --> W[Object Storage]
+V --> X[Autonomous Database]
+V --> Y{ULTRAMQ AP}
+Y --> Z[AI Vision]
+Y --> AD[Logging]
+Y --> AB[APEX]
+Y --> AC[Auditing]
+H --> AE[ERP User]
+H --> AF[SCP User]
+H --> AG[Vegetation Client App]
+H --> AH[LOB Analyst]
+H --> AI[LOB Analyst]
+L --> AJ[XYZ Region]
+AJ --> AK[Synidia Cloud]
+AK --> AL{cohete}
+AK --> AM(OpenAl)
+AK --> AN[[AWS]]
+AK --> AO[[Azure]]
+AH --> AP[3rd Party Interface]
 ```
 
 **How It Works**
 
-* The core of the chatbot is a Go program named "synopsis.go".
-* It utilizes the Cohere API to generate text responses that are relevant to raw data context at the edge.
+* The core is a Go program named "synopsis.go".
+* It frontloads AI API to generate executive synopsis and intelligence reporting that are relevant to raw data context at the edge.
 * A frontend (e.g., built with a template like the UFO Alien Template) provides a user interface for interacting with the chatbot.
+* This Proof of Concept can be leveraged on Cohere's Powerful `command-r-plus` model at 128k token output on AuthN/AuthZ silo'd LOB data
+*
 
 **File Structure**
 ```
 edge-ai-service/
+├── .models.{theoretical}/
+│   └── x.ai.grok.alpha.200b.params
+│   └── mistral.latest.bin
+│   └── llama.latest.bin
+│   └── custom.bin.public.private.access
 ├── pkg/
 │   └── synopsis/service.go
 |   └── shared/subjects.go
@@ -48,6 +71,52 @@ edge-ai-service/
 ├── .env
 ├── Dockerfile
 └── README.md
+```
+
+**Architecture**
+Refer to Pretty one at `./artifacts/architecture.png`
+```mermaid
+graph LR
+A[Edge Services Admin] --> B[Corsight]
+B --> C{Python 37}
+C --> D[OCI EDGE]
+C --> E[Redis] 
+C --> F[Software]
+D --> G[OCI Admin]
+D --> H[Application Admin]
+D --> I[Videos Stream / Snapshot Push]
+D --> J[Image or Video Capture]
+I --> K[ULTRA]
+G --> L[OCI Chicago]
+G --> M[OCI Ashburn]
+L --> N[OSN]
+N --> O[Object Storage]
+N --> P[Autonomous Database]
+N --> Q{ULTRAMQ AP}
+Q --> R[AI Vision]
+Q --> U[Logging]
+Q --> S[APEX]
+Q --> T[Auditing]
+M --> V[OSN]
+V --> W[Object Storage]
+V --> X[Autonomous Database]
+V --> Y{ULTRANATSMQ AP}
+Y --> Z[AI Vision]
+Y --> AD[Logging]
+Y --> AB[APEX]
+Y --> AC[Auditing]
+H --> AE[ERP User]
+H --> AF[SCP User]
+H --> AG[Vegetation Client App]
+H --> AH[LOB Analyst]
+H --> AI[LOB Analyst]
+L --> AJ[XYZ Region]
+AJ --> AK[Synadia Cloud]
+AK --> AL{Cohere}
+AK --> AM(OpenAl)
+AK --> AN[[AWS]]
+AK --> AO[[Azure]]
+AH --> AP[3rd Party Interface]
 ```
 
 **Requirements**
@@ -63,15 +132,29 @@ edge-ai-service/
 2. **Install Go:** Follow the instructions at [https://go.dev/doc/install](https://go.dev/doc/install)
 3. **Clone or download this project:** This will give you the `synopsis.go` file.
 4. **Set Environment Variable:** Set the `CO_API_KEY` environment variable with your Cohere API key.
-   * **Linux/macOS:** `export CO_API_KEY=your_api_key`
+   * **Linux/macOS:** `export CO_API_KEY=your_api_key; export NATS_URL=your_nats_global_super_cluster`
    * **Windows:** Use the System Properties settings.
 
 **Development and Testing**
 ```bash
-# Initialize default nats server
-nats-server
-# Subscribe to synopsis messages
-nats sub "edge.synopsis"
+# Add your nkey credentials file
+-----BEGIN NATS USER JWT-----
+uuidv40xDAGeysuperdupersecretencryption123ociwoohoosafracupnerd1241235123451235rqegrq245h
+------END NATS USER JWT------
+
+************************* IMPORTANT *************************
+NKEY Seed printed below can be used to sign and prove identity.
+NKEYs are sensitive and should be treated as secrets.
+
+-----BEGIN USER NKEY SEED-----
+superdupersecretencryption123ociwoohoosafracupnerd1241235123451235rqegrq245h
+------END USER NKEY SEED------
+
+*************************************************************
+```
+```
+# Subscribe to synopsis messages anywhere🤓
+nats sub "edge.ai.synopsis"
 ```
 ```bash
 go mod download
@@ -90,7 +173,7 @@ This will create an executable file named synopsis (or synopsis.exe on Windows)
 2. Run the chatbot:
 
 ```bash
-./synopsis -i "<co: 0>341 2003-10-11T22:14:15.003Z edge.machine.oci-rover.ai su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8"
+./synopsis -i "<co: 0>341 RSA2048-10-11T22:14:15.003Z edge.machine.oci-rover.ai su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8"
 ```
 
 Use code with caution.
