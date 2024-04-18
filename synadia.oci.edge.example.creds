@@ -1,0 +1,13 @@
+-----BEGIN NATS USER JWT-----
+uuidv40xDAGeysuperdupersecretencryption123ociwoohoosafracupnerd1241235123451235rqegrq245h
+------END NATS USER JWT------
+
+************************* IMPORTANT *************************
+NKEY Seed printed below can be used to sign and prove identity.
+NKEYs are sensitive and should be treated as secrets.
+
+-----BEGIN USER NKEY SEED-----
+superdupersecretencryption123ociwoohoosafracupnerd1241235123451235rqegrq245h
+------END USER NKEY SEED------
+
+*************************************************************
