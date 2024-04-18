@@ -1,51 +1,8 @@
-## Sygnopsis: Edge AI Innovation
+## SIGnopsis: Edge AI R&D PI - 
+
+Role: Chief Architect - FY24 Accenture Oracle Mastermind Hackathon 
 
 This tool demonstrates how to use AI at the edge for raw data to executive signopsis intelligence reporting for agnostic source systems via a land-air-water-space network data fabric mesh.
-
-**Design**
-```mermaid
-graph LR
-A[Edge Services Admin] --> B[Corsight]
-B --> C{Python 37}
-C --> D[OCI EDGE]
-C --> E[Redis] 
-C --> F[Software]
-D --> G[OCI Admin]
-D --> H[Application Admin]
-D --> I[Videos Stream / Snapshot Push]
-D --> J[Image or Video Capture]
-I --> K[ULTRA]
-G --> L[OCI Chicago]
-G --> M[OCI Ashburn]
-L --> N[OSN]
-N --> O[Object Storage]
-N --> P[Autonomous Database]
-N --> Q{ULTRAMQ AP}
-Q --> R[AI Vision]
-Q --> U[Logging]
-Q --> S[APEX]
-Q --> T[Auditing]
-M --> V[OSN]
-V --> W[Object Storage]
-V --> X[Autonomous Database]
-V --> Y{ULTRAMQ AP}
-Y --> Z[AI Vision]
-Y --> AD[Logging]
-Y --> AB[APEX]
-Y --> AC[Auditing]
-H --> AE[ERP User]
-H --> AF[SCP User]
-H --> AG[Vegetation Client App]
-H --> AH[LOB Analyst]
-H --> AI[LOB Analyst]
-L --> AJ[XYZ Region]
-AJ --> AK[Synidia Cloud]
-AK --> AL{cohete}
-AK --> AM(OpenAl)
-AK --> AN[[AWS]]
-AK --> AO[[Azure]]
-AH --> AP[3rd Party Interface]
-```
 
 **How It Works**
 
