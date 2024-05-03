@@ -2,7 +2,7 @@
 
 Role: Chief Architect - FY24 Accenture Oracle Mastermind Hackathon 
 
-This tool demonstrates how to use AI at the edge for raw data to executive signopsis intelligence reporting for agnostic source systems via a land-air-water-space network data fabric mesh.
+This tool demonstrates how to use AI at the edge for raw data to executive synopsis & intelligence reporting for agnostic raw source data via a land-air-water-space network data fabric mesh.
 
 **How It Works**
 
